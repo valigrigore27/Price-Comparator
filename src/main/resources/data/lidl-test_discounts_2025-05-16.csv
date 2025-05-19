@@ -1,0 +1,4 @@
+product_id;product_name;brand;package_quantity;package_unit;product_category;from_date;to_date;percentage_of_discount
+P998;morcovi;Bio Fresh;1;kg;legume;2025-05-16;2025-05-23;20
+P997;unt sărat;President;200;g;lactate;2025-05-16;2025-05-21;12
+P996;orez basmati;Sunrice;1;kg;paste făinoase;2025-05-17;2025-05-24;10
