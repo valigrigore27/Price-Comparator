@@ -1,4 +1,3 @@
--- Tabela: products
 CREATE TABLE IF NOT EXISTS products (
     product_id TEXT PRIMARY KEY,
     product_name TEXT,
@@ -8,12 +7,10 @@ CREATE TABLE IF NOT EXISTS products (
     package_unit TEXT
 );
 
--- Tabela: stores
 CREATE TABLE IF NOT EXISTS stores (
     name TEXT PRIMARY KEY
 );
 
--- Tabela: discounts
 CREATE TABLE IF NOT EXISTS discounts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     product_product_id TEXT,
@@ -27,7 +24,6 @@ CREATE TABLE IF NOT EXISTS discounts (
     FOREIGN KEY (store_name) REFERENCES stores(name)
 );
 
--- Tabela: price_entries
 CREATE TABLE IF NOT EXISTS price_entries (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     product_product_id TEXT,
@@ -35,7 +31,7 @@ CREATE TABLE IF NOT EXISTS price_entries (
     date TEXT,
     price REAL,
     currency TEXT,
-    price_per_unit TEXT,
+    price_per_unit REAL,
     UNIQUE (product_product_id, store_name, date),
     FOREIGN KEY (product_product_id) REFERENCES products(product_id),
     FOREIGN KEY (store_name) REFERENCES stores(name)

@@ -6,8 +6,10 @@ import org.example.market.model.Store;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface PriceEntryRepository extends JpaRepository<PriceEntry, Long> {
     boolean existsByProductAndStoreAndDate(Product product, Store store, String date);
 
+    List<PriceEntry> findByProduct(Product product);
 }

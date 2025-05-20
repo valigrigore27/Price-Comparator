@@ -44,7 +44,6 @@ public class CsvImportService {
         String date = parts.length > 1 ? parts[1] : "";
 
         Store store = getOrCreateStore(storeName);
-
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8))) {
             reader.readLine(); // skip header
             String line;

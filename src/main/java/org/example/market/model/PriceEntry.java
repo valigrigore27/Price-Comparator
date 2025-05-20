@@ -29,6 +29,6 @@ public class PriceEntry {
     private String date;
     private double price;
     private String currency;
-    private String pricePerUnit;
+    private double pricePerUnit;
 
 }

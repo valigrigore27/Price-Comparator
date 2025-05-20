@@ -30,7 +30,7 @@ public class ProductSubstitutesService {
 
             if (normalizedQuantity > 0) {
                 double pricePerUnit = entry.getPrice() / normalizedQuantity;
-                entry.setPricePerUnit(String.valueOf(pricePerUnit) + "/" + normalize(unit));
+                entry.setPricePerUnit(pricePerUnit);
                 priceEntryRepository.save(entry);
             }
         }
@@ -47,19 +47,19 @@ public class ProductSubstitutesService {
             }
         };
     }
-    private String normalize(String unit) {
-        if (unit == null) return "";
-
-        return switch (unit.toLowerCase()) {
-            case "l", "ml"-> "l";
-            case "kg", "g" -> "kg";
-            case "buc" -> "buc";
-            case "role" -> "rola";
-            default -> {
-                System.out.println("Unknown unit: " + unit);
-                yield "";
-            }
-        };
-    }
+//    private String normalize(String unit) {
+//        if (unit == null) return "";
+//
+//        return switch (unit.toLowerCase()) {
+//            case "l", "ml"-> "l";
+//            case "kg", "g" -> "kg";
+//            case "buc" -> "buc";
+//            case "role" -> "rola";
+//            default -> {
+//                System.out.println("Unknown unit: " + unit);
+//                yield "";
+//            }
+//        };
+//    }
 
 }

@@ -8,4 +8,6 @@ import java.time.LocalDate;
 
 public interface DiscountRepository extends JpaRepository<Discount, Long> {
     boolean existsByProductAndStoreAndFromDateAndToDate(Product product, Store store, String from, String to);
+
+    Discount findByProductAndStoreAndFromDateLessThanEqualAndToDateGreaterThanEqual(Product product, Store store, String format, String format1);
 }
