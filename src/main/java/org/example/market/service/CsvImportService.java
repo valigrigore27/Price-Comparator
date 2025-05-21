@@ -85,23 +85,37 @@ public class CsvImportService {
                 String[] fields = line.split(";");
                 if(fields.length < 9) continue;
 
-                Product product = getOrCreateProduct(fields, resource);
-
-                String fromDate = fields[6];
-                String toDate = fields[7];
-                int percentage = Integer.parseInt(fields[8]);
-
-                if (!discountRepository.existsByProductAndStoreAndFromDateAndToDate(product, store, fromDate, toDate)) {
-                    Discount discount = Discount.builder()
-                            .product(product)
-                            .store(store)
-                            .date(date)
-                            .fromDate(fromDate)
-                            .toDate(toDate)
-                            .percentageOfDiscount(percentage)
-                            .build();
-                    discountRepository.save(discount);
+                //Product product = getOrCreateProduct(fields, resource);
+                Product product = productRepository.findById(fields[0]).orElse(null);
+                if(product == null){
+                    System.out.println("\n-------------------------------\n");
+                    System.out.printf("Skipping discount for unknown product ID: %s%n", fields[0]);
+                    System.out.println("\n-------------------------------\n");
+                    continue;
                 }
+
+                boolean hasPriceHistory = priceEntryRepository.existsByProduct(product);
+                if (!hasPriceHistory) {
+                    System.out.printf("Skipping discount for product without price history: %s%n", product.getProductName());
+                    System.out.println("\n-------------------------------\n");
+                    continue;
+                }
+
+                    String fromDate = fields[6];
+                    String toDate = fields[7];
+                    int percentage = Integer.parseInt(fields[8]);
+
+                    if (!discountRepository.existsByProductAndStoreAndFromDateAndToDate(product, store, fromDate, toDate)) {
+                        Discount discount = Discount.builder()
+                                .product(product)
+                                .store(store)
+                                .date(date)
+                                .fromDate(fromDate)
+                                .toDate(toDate)
+                                .percentageOfDiscount(percentage)
+                                .build();
+                        discountRepository.save(discount);
+                    }
             }
         }
     }
@@ -137,6 +151,6 @@ public class CsvImportService {
 
     private Store getOrCreateStore(String name) {
         return storeRepository.findById(name)
-                .orElseGet(() -> storeRepository.save(Store.builder().name(name).build()));
+                .orElseGet(() -> storeRepository.save(Store.builder().storeName(name).build()));
     }
 }

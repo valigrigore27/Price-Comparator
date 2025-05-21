@@ -3,6 +3,7 @@ package org.example.market;
 import org.example.market.model.BasketItem;
 import org.example.market.service.BasketOptimizerService;
 import org.example.market.service.CsvImportService;
+import org.example.market.service.CustomPriceAlertService;
 import org.example.market.service.ProductSubstitutesService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,7 +35,7 @@ public class MarketApplication {
     }
 
     @Bean
-    public CommandLineRunner basketRunner(BasketOptimizerService basketOptimizerService) {
+    public CommandLineRunner basketRunner(BasketOptimizerService basketOptimizerService, CustomPriceAlertService customPriceAlertService) {
         return args -> {
             List<BasketItem> basket = List.of(
                     new BasketItem(10, "buc", "ouă"),
@@ -47,5 +48,13 @@ public class MarketApplication {
             basketOptimizerService.printShoppingLists(basket);
         };
     }
+
+    @Bean
+    public CommandLineRunner priceAlertRunner(CustomPriceAlertService customPriceAlertService) {
+        return args -> {
+            customPriceAlertService.priceOfProductDroppedBelow("lapte", "lidl", 9.79);
+        };
+    }
+
 
 }

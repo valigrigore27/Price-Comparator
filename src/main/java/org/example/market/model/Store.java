@@ -12,5 +12,5 @@ import lombok.*;
 public class Store {
 
     @Id
-    private String name;
+    private String storeName;
 }

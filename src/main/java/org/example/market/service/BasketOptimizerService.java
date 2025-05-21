@@ -86,7 +86,7 @@ public class BasketOptimizerService {
                 //stores will contain a list of product details with the lowest
                 // prices among all products of that type in all stores
                 storeToItems
-                        .computeIfAbsent(bestEntry.getStore().getName(), k -> new ArrayList<>())
+                        .computeIfAbsent(bestEntry.getStore().getStoreName(), k -> new ArrayList<>())
                         .add(detail);
             }
         }
@@ -134,6 +134,7 @@ public class BasketOptimizerService {
         });
 
         System.out.println("All stores total prices: " + allStoresTotalPrices(result) + " RON");
+        System.out.println("\n-------------------------------\n");
     }
 
 }
