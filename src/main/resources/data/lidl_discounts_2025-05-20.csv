@@ -1,0 +1,5 @@
+product_id;product_name;brand;package_quantity;package_unit;product_category;from_date;to_date;percentage_of_discount
+P017;piept pui;Lidl;1;kg;carne;2025-05-20;2025-05-27;40
+P026;banane;Lidl;1;kg;legume și fructe;2025-05-20;2025-05-27;25
+P065;file somon;Lidl;0.2;kg;pește;2025-05-20;2025-05-30;15
+P001;lapte zuzu;Zuzu;1;l;lactate;2025-05-20;2025-05-30;50

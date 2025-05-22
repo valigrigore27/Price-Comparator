@@ -1,0 +1,4 @@
+product_id;product_name;brand;package_quantity;package_unit;product_category;from_date;to_date;percentage_of_discount
+P012;pâine albă;K-Classic;500;g;panificație;2025-05-20;2025-05-27;80
+P029;ulei floarea-soarelui;Floriol;1;l;alimente de bază;2025-05-20;2025-05-27;30
+P059;morcovi;Generic;0.5;kg;legume și fructe;2025-05-20;2025-05-27;30

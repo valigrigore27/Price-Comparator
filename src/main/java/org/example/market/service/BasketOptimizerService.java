@@ -42,7 +42,7 @@ public class BasketOptimizerService {
             Product bestProduct = null;
             double bestPricePerUnit = Double.MAX_VALUE;
 
-            //for each found product searches in price_entries table for taking the best price
+            //for each found product we search in price_entries table for taking the best price
             for (Product product : products) {
                 List<PriceEntry> entries = priceEntryRepository.findByProduct(product);
                 //verifying all appearances of each product

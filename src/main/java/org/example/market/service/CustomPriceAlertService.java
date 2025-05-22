@@ -61,6 +61,7 @@ public class CustomPriceAlertService {
                 }
                 if(lastProductPriceInStore <= desiredPrice) {
                     System.out.printf("The price for product %s from %s store dropped below %.2f ! Now it's %s.", productName, storeName, desiredPrice, lastProductPriceInStore);
+                    System.out.println("\n-------------------------------\n");
                 }
             }
             }

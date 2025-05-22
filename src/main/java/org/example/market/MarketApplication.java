@@ -38,12 +38,26 @@ public class MarketApplication {
     public CommandLineRunner basketRunner(BasketOptimizerService basketOptimizerService, CustomPriceAlertService customPriceAlertService) {
         return args -> {
             List<BasketItem> basket = List.of(
-                    new BasketItem(10, "buc", "ouă"),
-                    new BasketItem(1, "kg", "pâine"),
-                    new BasketItem(5, "kg", "cartofi"),
+                    //best prices from kaufland without discount
                     new BasketItem(1, "l", "suc portocale"),
-                    new BasketItem(10, "kg", "zahăr"),
-                    new BasketItem(5, "kg",  "cașcaval")
+                    new BasketItem(5, "kg",  "cașcaval"),
+                    // see 'kaufland_discounts_2025-05-20.csv'
+                    new BasketItem(3, "l", "ulei"),
+                    new BasketItem(3, "kg", "morcovi"),
+                    new BasketItem(1, "kg", "pâine"),
+
+                    //best prices from lidl without discount
+                    new BasketItem(5, "kg", "cartofi"),
+                    // see 'lidl_discounts_2025-05-20.csv'
+                    new BasketItem(7, "kg", "piept pui"),
+                    new BasketItem(2, "kg", "banane"),
+                    new BasketItem(0.5, "kg", "file somon"),
+
+                    //best prices from profi without discount
+                    new BasketItem(10, "buc", "ouă"),
+                    // see 'profi_discounts_2025-05-20.csv'
+                    new BasketItem(0.5, "kg", "telemea"),
+                    new BasketItem(0.5, "kg", "zahăr tos")
             );
             basketOptimizerService.printShoppingLists(basket);
         };
@@ -52,7 +66,7 @@ public class MarketApplication {
     @Bean
     public CommandLineRunner priceAlertRunner(CustomPriceAlertService customPriceAlertService) {
         return args -> {
-            customPriceAlertService.priceOfProductDroppedBelow("lapte", "lidl", 9.79);
+            customPriceAlertService.priceOfProductDroppedBelow("pâine albă", "kaufland", 2);
         };
     }
 
