@@ -26,10 +26,10 @@ public class BasketOptimizerService {
     private final DiscountRepository discountRepository;
 
     public Map<String, List<ShoppingListProduct>> optimizeBasket(List<BasketItem> basket) {
-        //we need a map like "storename: product details list"
+        //we need a map like "storename: shopping list"
         Map<String, List<ShoppingListProduct>> storeToItems = new HashMap<>();
 
-        //taking all my basket items
+        //takes all my basket items
         for (BasketItem item : basket) {
 
             boolean flag = false;
@@ -62,7 +62,7 @@ public class BasketOptimizerService {
                     withDiscount = pricePerUnit;
                 }
 
-                //if found a lower price (with discount or not), update the best variables
+                //if found a lower price (with discount or not), update best variables(bestPricePerUnit, bestEntry, bestProduct)
                     if (pricePerUnit < bestPricePerUnit) {
                         bestPricePerUnit = pricePerUnit;
                         bestEntry = entry;

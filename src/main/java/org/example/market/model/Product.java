@@ -19,10 +19,4 @@ public class Product {
     private String brand;
     private double packageQuantity;
     private String packageUnit;
-
-    public Product(String s, String s1, String s2, String s3) {
-    }
-
-    public Product(String s, String s1, String s2) {
-    }
 }

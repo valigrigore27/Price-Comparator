@@ -31,21 +31,25 @@ public class CustomPriceAlertService {
     public void priceOfProductDroppedBelow(String productName, String storeName, double desiredPrice){
 
         List<Product> products = productRepository.findByProductNameContainingIgnoreCase(productName);
+        //checks if the store with storeName exists
         Store store = storeRepository.findByStoreName(storeName);
         if (store == null) {
             System.out.println("Store not found: " + storeName);
             return;
         }
 
+
         for(Product product : products){
             List<PriceEntry> priceEntries = priceEntryRepository.findByProductAndStore(product, store);
             List<Discount> discounts = discountRepository.findByProductAndStore(product, store);
 
+            //takes the whole product's prices history from price_entries table and keep the recent one
             if (!priceEntries.isEmpty()) {
                 priceEntries.sort((a, b) -> b.getDate().compareTo(a.getDate()));
                 double lastProductPriceInStore = priceEntries.get(0).getPrice();
                 //System.out.println(lastProductPriceInStore);
 
+                //if there's an available discount for this product, then applies it
                 if (!discounts.isEmpty()) {
                     discounts.sort((a, b) -> b.getDate().compareTo(a.getDate()));
 

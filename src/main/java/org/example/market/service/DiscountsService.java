@@ -45,6 +45,8 @@ public class DiscountsService {
 
     public List<Discount> getNewDiscounts() {
         LocalDate now = LocalDate.now();
+
+        //discounts which started yesterday
         LocalDate yesterday = now.minusDays(2);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
