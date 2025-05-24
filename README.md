@@ -38,13 +38,14 @@ Project uses a layered architecture, with separate packages for controllers, ser
 ### Price History
 1. GET /price-history/{productName}
 Optional Query Params Filters:
--product category
--store
--brand
+- product category
+- store
+- brand
 
 For example, for '/price-history/iaurt%20grecesc?productCategory=lactate&brand=Lidl&storeName=lidl' 
 
 We'll get:
+```json
 [
   {
     "date": "2025-05-01",
@@ -60,8 +61,10 @@ We'll get:
   }
 ]
 
+### Discounts
+
 2. GET /discounts/best
-We'll get the best 10 available discounts if exists.
+- We'll get the best 10 available discounts if exists.
 
 3. GET /discounts/new
-We'll get the discounts that appeared in last 24 hours.
+ - We'll get the discounts that appeared in last 24 hours.
