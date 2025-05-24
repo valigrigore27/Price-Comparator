@@ -65,6 +65,8 @@ The project follows a layered architecture, with separate packages for controlle
     "storeName": "lidl"
   }
 ]
+```
+
 ### 2. Discounts
 
 **a. Best Discounts**  
