@@ -31,7 +31,7 @@ The project follows a layered architecture, with separate packages for controlle
 ## Assumptions & Simplifications
 
 - The application assumes that CSV files named using the `{store}_{date}.csv` pattern contain product pricing data and are imported into two tables: `products` (for static product info) and `price_entries` (for time-specific pricing).
-- Discount files should follow the `{store}_discounts_{date}.csv` naming convention. They are only processed if the referenced products already exist in the database and have associated price history.
+- Discount files should follow the `{store}_discounts_{date}.csv` naming convention. They are only processed if the referenced products already exist in the database and have associated price history and are imported into discounts table.
 
 ---
 
@@ -95,15 +95,8 @@ The application includes a basket optimization feature. A predefined shopping li
 - 1L suc de portocale  
 - 5kg cașcaval  
 - 3L ulei  
-- 3kg morcovi  
-- 1kg pâine  
-- 5kg cartofi  
-- 7kg piept de pui  
-- 2kg banane  
-- 0.5kg file de somon  
+- 3kg morcovi 
 - 10 bucăți ouă  
-- 0.5kg telemea  
-- 0.5kg zahăr tos 
 
 The optimizer outputs store-specific suggestions for achieving the best value.
 
