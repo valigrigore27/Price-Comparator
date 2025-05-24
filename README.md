@@ -107,6 +107,6 @@ The optimizer outputs store-specific suggestions for achieving the best value.
 Users can define custom alerts for when the price of a specific product drops below a certain threshold at a specified store.
 
 **Example:**  
-If the price of `"pâine albă"` drops below `2 RON` at **kaufland**, an alert is triggered automatically at startup in .
+If the price of `"pâine albă"` drops below `2 RON` at `kaufland`, an alert is triggered automatically at startup.
 
 ---
