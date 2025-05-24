@@ -29,7 +29,7 @@ Project uses a layered architecture, with separate packages for controllers, ser
 ---
 
 ## Assumptions & Simplifications
-- The application assumes that CSV files named in the '{store}_{date}.csv' format represent product pricing data and are imported into two related tables: products (for static product information) and price_entries (for time-specific price records). Additionally, discount files (named with the pattern '{store}_discounts_{date}.csv') are only processed if the referenced products already exist in the database and have a known price history.
+- The application assumes that CSV files named in the '{store}_{date}.csv' format represent product pricing data and are imported into two related tables: products (for static product information) and price_entries (for time-specific price records). Additionally, discount files (named with the pattern '{store}_ discounts_{date}.csv') are only processed if the referenced products already exist in the database and have a known price history.
 
 ---
 
