@@ -1,3 +1,4 @@
 product_id;product_name;brand;package_quantity;package_unit;product_category;from_date;to_date;percentage_of_discount
 P010;brânză telemea;Proxi;0.3;kg;lactate;2025-05-20;2025-05-27;33
 P023;zahăr tos;Proxi;1;kg;alimente de bază;2025-05-20;2025-05-27;25
+P037;detergent lichid;Dero;2.5;l;produse de menaj;2025-05-23;2025-05-26;15

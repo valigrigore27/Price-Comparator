@@ -38,10 +38,10 @@ public class MarketApplication {
     public CommandLineRunner basketRunner(BasketOptimizerService basketOptimizerService, CustomPriceAlertService customPriceAlertService) {
         return args -> {
             List<BasketItem> basket = List.of(
-                    //best prices from kaufland without discount
+                    //best prices should be from kaufland without discount
                     new BasketItem(1, "l", "suc portocale"),
                     new BasketItem(5, "kg",  "cașcaval"),
-                    // see 'kaufland_discounts_2025-05-20.csv'
+                    //kaufland too but with discount (see 'kaufland_discounts_2025-05-20.csv')
                     new BasketItem(3, "l", "ulei"),
                     new BasketItem(3, "kg", "morcovi"),
                     new BasketItem(1, "kg", "pâine"),
