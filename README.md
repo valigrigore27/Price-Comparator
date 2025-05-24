@@ -60,6 +60,8 @@ We'll get:
     "storeName": "lidl"
   }
 ]
+```
+
 
 ### Discounts
 
