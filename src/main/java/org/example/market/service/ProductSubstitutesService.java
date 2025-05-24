@@ -26,15 +26,18 @@ public class ProductSubstitutesService {
             double quantity = product.getPackageQuantity();
             String unit = product.getPackageUnit().toLowerCase();
 
+            //normalize the quantity into a standard unit (500g -> 0.5kg)
             double normalizedQuantity = normalize(quantity, unit);
 
             if (normalizedQuantity > 0) {
+                // compute price per unit and store it in the entry
                 double pricePerUnit = entry.getPrice() / normalizedQuantity;
                 entry.setPricePerUnit(pricePerUnit);
                 priceEntryRepository.save(entry);
             }
         }
     }
+
     private double normalize(double quantity, String unit) {
         if (unit == null) return 0.0;
 
@@ -47,6 +50,8 @@ public class ProductSubstitutesService {
             }
         };
     }
+
+
 //    private String normalize(String unit) {
 //        if (unit == null) return "";
 //

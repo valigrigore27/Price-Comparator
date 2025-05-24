@@ -16,13 +16,18 @@ public class PriceHistoryService {
     public PriceHistoryService(PriceEntryRepository priceEntryRepository) {
         this.priceEntryRepository = priceEntryRepository;
     }
+
+    //retrieves the price history for a product, optionally filtered by category, brand, and store
     public List<PriceHistoryDto> getPriceHistory(String productName, Optional<String> productCategory, Optional<String> brand, Optional<String> storeName) {
         List<PriceEntry> entries = entriesByParameters(productName, productCategory, brand, storeName);
+
+        // map each PriceEntry to a DTO for returning as API response
         return entries.stream()
                 .map(e -> new PriceHistoryDto(e.getDate(), e.getPrice(), e.getCurrency(), e.getStore().getStoreName()))
                 .toList();
     }
 
+    //builds and executes the appropriate query based on which optional filters are present
     public List<PriceEntry> entriesByParameters(String productName, Optional<String> productCategory, Optional<String> brand, Optional<String> storeName){
         if(productCategory.isPresent()){
             if (brand.isPresent()){
